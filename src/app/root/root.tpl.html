@@ -1,0 +1,45 @@
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display and Top Menu Items  -->
+  <div id="header" ui-view="header"></div>
+  <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+  <div id="navbar" ui-view="navbar"></div>
+</nav>
+<!-- Page Content -->
+<div id="page-wrapper">
+  <div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                {{rootCtrl.scrCfg.title}} <small> {{rootCtrl.scrCfg.subtitle}} </small>
+            </h1>
+        </div>
+    </div>
+    <!-- /.row -->
+  </div>
+  <div ui-view="content" </div>
+</div>
+
+<!-- HEADER
+<header id="header" ui-view="header"></header>
+END HEADER -->
+
+<!-- Left panel : Navigation area -->
+<!-- Note: This width of the aside area can be adjusted through LESS variables
+<aside id="navbar"><span ui-view="navbar"></span></aside>
+END NAVIGATION -->
+
+<!-- MAIN PANEL
+<div id="main" role="main">
+
+    MAIN CONTENT
+    <div id="content" ui-view="content" class="view-animate"></div>
+    END MAIN CONTENT
+
+</div>
+ END MAIN PANEL -->
+
+<!-- PAGE FOOTER
+<div class="footer"><span ui-view="footer"></span></div>
+END FOOTER -->

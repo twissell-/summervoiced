@@ -52,24 +52,6 @@ local.properties
 ######################
 # AngularJS
 ######################
-portal/view/angular/bin/
-portal/view/angular/build/
-portal/view/angular/vendor/
-portal/view/angular/node_modules/
-
-portal/view/angular/src/common/arena/
-portal/view/angular/src/app/modules/sistema/
-portal/view/angular/src/app/modules/clientes/
-portal/view/angular/src/app/modules/comunes/
-portal/view/angular/src/app/modules/admin/
-portal/view/angular/src/app/modules/planta/
-portal/view/angular/arena.json
-
-portal/controller/src/main/webapp/angular
-portal/controller/src/main/webapp/reportfiles
-portal/controller/node_modules
-
-**/angular/versions/**/*
-!**/angular/versions/**/*.rar
-!**/angular/versions/**/*.zip
-!**/angular/versions/**/*.7z
+build/
+vendor/
+node_modules/

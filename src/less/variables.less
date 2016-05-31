@@ -1,0 +1,101 @@
+/**
+ * These are the variables used throughout the application. This is where
+ * overwrites that are not specific to components should be maintained.
+ */
+
+
+/**----------------------------------
+*     BOOTSTRAP OVERRIDE
+*------------------------------------*/
+
+/**
+ * Typography-related.
+ */
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'),
+    url(fonts/OpenSans-Light.ttf) format('truetype');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'),
+    url(fonts/OpenSans-Regular.ttf) format('truetype');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'),
+    url(fonts/OpenSans-Bold.ttf) format('truetype');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Open Sans Italic'), local('OpenSans-Italic'),
+    url(fonts/OpenSans-Italic.ttf) format('truetype');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Open Sans Bold Italic'), local('OpenSans-BoldItalic'),
+    url(fonts/OpenSans-BoldItalic.ttf) format('truetype');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+.pagination{
+  margin: 0;
+  padding: 0;
+}
+
+/**----------------------------------
+*   GLOBAL VARIABLES AND MIXINS
+*------------------------------------*/
+@full-size-bg-img: 100% 100%;
+@solid-line: 1px solid black;
+
+/*------------------
+*    VARIABLES
+*------------------*/
+
+@panel-bg-color: #1D8B66;
+@panel-color: white;
+@panel-border-color: gray;
+
+.panel-success > .panel-heading{
+  background-color: @panel-bg-color;
+  color: @panel-color;
+  border-color: @panel-border-color;
+}
+
+.panel-success {
+  border-color: @panel-border-color;
+}
+
+.arena-page-header{
+  margin-top: 0;
+  padding-top: 0;
+}
+
+// Brand colors
+// -------------------------
+
+@brand-primary:         #3276B1;
+@brand-success:         #739E73;
+@brand-warning:         #C79121;
+@brand-danger:          #A90329;
+@brand-info:            #57889C;

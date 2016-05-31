@@ -1,0 +1,26 @@
+Plataforma: Windows
+
+1. Instalar Node.Js
+
+2. En la carpeta src/angular/ abrir una línea de comandos y ejecutar:
+	I.   'npm -g install grunt-cli karma bower'
+	II.  'npm install'
+	III. 'bower install'
+
+3. Copiar 'src/angular/template/smart-admin' en 'src/angular/vendor'
+
+4. Para comenzar a programar ejecutar
+	'grunt watch' 
+
+Notas:
+Paso 2.I : Se instalan a nivel global estos paquetes (programas de Node.Js) en la carpeta 'C:/Users/%ACTUAL_USER%/AppData/Roaming/npm'. Una vez instalados se pueden ejecutar los siguientes comandos desde cmd en cualquier carpeta del sistema: 'grunt' y 'bower'.
+
+Paso 2.II : Se instalan localmente los paquetes listados en 'src/angular/package.json'  en la carpeta 'src/angular/node_modules'. Si ya se tienen estos paquetes en otro proyecto y no se quiere volver a descargarlos desde internet, se puede copiar la carpeta 'node_modules' entera desde otro proyecto y luego ejecutar 'npm install' (se fija que ya tienen los paquetes y no los descarga, aunque quizás los actualice).
+
+Paso 2.III : Se descargan las librerías de terceros listadas en 'src/angular/bower.json' en la carpeta 'src/angular/vendor'. También se pueden copiar a mano desde otro proyecto y luego ejecutar 'bower install' o 'bower update'.
+
+Paso 4 :  Inicia un proceso que quedará vivo en la línea de comandos. Éste recompilará el código en la carpeta 'src/angular/build' cada vez que se modifique algún fuente del proyecto. También se copiarán estos archivos en la carpeta 'src/main/webapp/angular' para que puedan ser ejecutados desde Eclipse. Si no se desea usar esta funcionalidad y sólo se quiere compilar el código se debe ejecutar el siguiente comando:'grunt build'. 
+
+Compilación de Producción:
+Ejecutar el comando 'grunt' desde la línea de comandos en la carpeta 'src/angular'. Éste comando realiza las tareas listadas en 'src/angular/Gruntfile.js'. Es un comando simplificado que ejecuta tres tareas: 'grunt clean'(limpia), 'grunt build'(genera la carpeta /build) y 'grunt compile' (genera la carpeta /bin con los archivos de producción unificados, minificados y ofuscados). 
+

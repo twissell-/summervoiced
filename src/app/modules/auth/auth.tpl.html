@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div ng-if="false" class="alert alert-warning">
+            <i class="fa fa-info-circle"></i>  <strong></strong> You re not authenticated.
+        </div>
+        <div ng-if="vm.hasErrors" class="alert alert-danger">
+            <i class="fa fa-exclamation-circle"></i>  <strong></strong> Authentication Error. Please, try again.
+        </div>
+        <div ng-if="vm.success" class="alert alert-success">
+            <i class="fa fa-exclamation-circle"></i>  <strong></strong> You are Authenticated.
+        </div>
+    </div>
+</div>
+<!-- /.row -->
+<div ng-if="!vm.success" class="row container">
+  <form class="form-horizontal" role="form">
+    <fieldset class="form-group">
+      <label class="col-lg-1 control-label" for="pin">PIN</label>
+      <div class="col-lg-4">
+        <input type="text" ng-disabled="vm.submited" class="form-control" id="pin" ng-model="pin" placeholder="Enter your pin">
+        <small class="text-muted">Click on "Get PIN", then copy the pin and submit.</small>
+      </div>
+      <div class="col-lg-2">
+        <input type="submit" ng-disabled="vm.submited" class="btn btn-success" ng-click="vm.authenticate(pin)" value="Submit" />
+        <a class="btn btn-primary" href="{{vm.pinUrl}}" ng-disabled="vm.submited" target="_blank" role="button">Get PIN</a>
+      </div>
+    </fieldset>
+  </form>
+</div>
+<!-- /.row -->
