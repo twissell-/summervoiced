@@ -1,0 +1,75 @@
+# Directories #
+/build/
+/bin/
+target/
+work/
+# OS Files #
+.DS_Store
+*.class
+# Package Files #
+*.jar
+*.war
+*.ear
+*.db
+jdbc.properties
+# Log Files #
+*.log
+######################
+# Windows
+######################
+# Windows image file caches
+Thumbs.db
+# Folder config file
+Desktop.ini
+######################
+# Eclipse
+######################
+*.pydevproject
+.project
+.metadata
+.tomcatplugin
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+*.#webclasspath
+local.properties
+.classpath
+.settings/
+.loadpath
+# External tool builders
+.externalToolBuilders/
+# Locally stored "Eclipse launch configurations"
+*.launch
+# CDT-specific
+.cproject
+# PDT-specific
+.buildpath
+
+######################
+# AngularJS
+######################
+portal/view/angular/bin/
+portal/view/angular/build/
+portal/view/angular/vendor/
+portal/view/angular/node_modules/
+
+portal/view/angular/src/common/arena/
+portal/view/angular/src/app/modules/sistema/
+portal/view/angular/src/app/modules/clientes/
+portal/view/angular/src/app/modules/comunes/
+portal/view/angular/src/app/modules/admin/
+portal/view/angular/src/app/modules/planta/
+portal/view/angular/arena.json
+
+portal/controller/src/main/webapp/angular
+portal/controller/src/main/webapp/reportfiles
+portal/controller/node_modules
+
+**/angular/versions/**/*
+!**/angular/versions/**/*.rar
+!**/angular/versions/**/*.zip
+!**/angular/versions/**/*.7z
