@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular
-        .module('app.auth')
+        .module('app.anilist.auth')
         .controller('AuthCtrl', AuthCtrl);
 
     AuthCtrl.$inject = ['$scope', '$cookies', 'AuthService'];

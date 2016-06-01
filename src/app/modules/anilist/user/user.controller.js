@@ -1,13 +1,13 @@
 (function() {
     'use strict';
     angular
-        .module('app.home')
-        .controller('HomeCtrl', HomeCtrl);
+        .module('app.anilist.user')
+        .controller('UserCtrl', UserCtrl);
 
-    HomeCtrl.$inject = ['$scope', 'UserService'];
+    UserCtrl.$inject = ['$scope', 'UserService'];
 
     /* @ngInject */
-    function HomeCtrl($scope, userService) {
+    function UserCtrl($scope, userService) {
         var vm = this;
 
         vm.scrCfg = {
@@ -19,8 +19,7 @@
         ////////////////
         function activate() {
           $scope.rootCtrl.scrCfg = vm.scrCfg;
-          userService.getAnimeList();
-          vm.comments = 23;
+          vm.user = userService.getCurrentUser();
         }
     }
 })();

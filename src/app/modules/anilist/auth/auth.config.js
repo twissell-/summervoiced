@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app.auth')
+        .module('app.anilist.auth')
         .config(configure);
 
     configure.$inject = ['$stateProvider'];
@@ -13,7 +13,7 @@
         url: '^/auth',
         views: {
           "content@root": {
-            templateUrl: 'modules/auth/auth.tpl.html',
+            templateUrl: 'modules/anilist/auth/auth.tpl.html',
             controller: 'AuthCtrl',
             controllerAs: 'vm'
           }

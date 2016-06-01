@@ -3,6 +3,6 @@
 
     angular
         .module('app.modules', [
-          'app.auth'            
+          'app.anilist'            
         ]);
 })();

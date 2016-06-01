@@ -3,16 +3,22 @@
     angular
         .module('app.root')
         .controller('HeaderCtrl', HeaderCtrl);
-    
-    HeaderCtrl.$inject = [];
-    
+
+    HeaderCtrl.$inject = ['UserService'];
+
     /* @ngInject */
-    function HeaderCtrl() {
+    function HeaderCtrl(userService) {
         var vm = this;
-        vm.title = 'HeaderCtrl';
+        vm.user = {
+            name: ''
+        };
         activate();
         ////////////////
         function activate() {
+            userService.getCurrentUser()
+            .then(function (response) {
+                vm.user.name = response.display_name + ' : ' + response.id;
+            });
         }
     }
 })();

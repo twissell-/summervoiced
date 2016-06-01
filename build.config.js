@@ -14,7 +14,7 @@ module.exports = {
    * La carpeta `webapp_dir` es el directorio raíz donde se aloja la aplicación
    * web en el servidor. El subdirectorio `angular` se agregó para mayor claridad
    */
-  webapp_dir: '../main/webapp/angular',
+  webapp_dir: '/var/www/html/summervoiced',
 
 
   /**
@@ -29,7 +29,7 @@ module.exports = {
   app_files: {
     js: [ 'src/**/*.js', '!src/**/*.spec.js', '!src/assets/**/*.js' ],
     jsunit: [ 'src/**/*.spec.js' ],
-    
+
     coffee: [ 'src/**/*.coffee', '!src/**/*.spec.coffee' ],
     coffeeunit: [ 'src/**/*.spec.coffee' ],
 
@@ -68,7 +68,7 @@ module.exports = {
    * recommended that you use wildcards.
    */
   vendor_files: {
-    js: [          
+    js: [
       'vendor/jquery/jquery.min.js',
       'vendor/jqueryui/jquery-ui.min.js',
       'vendor/angular/angular.js',
@@ -78,13 +78,13 @@ module.exports = {
       'vendor/angular-i18n/angular-locale_es-ar.js',
       'vendor/angular-ui-router/release/angular-ui-router.min.js',
       'vendor/angular-bootstrap/ui-bootstrap-tpls.min.js',
-      'vendor/angular-cookies/angular-cookies.min.js',      
-      'vendor/angular-animate/angular-animate.min.js',      
-      'vendor/angular-messages/angular-messages.min.js',    
+      'vendor/angular-cookies/angular-cookies.min.js',
+      'vendor/angular-animate/angular-animate.min.js',
+      'vendor/angular-messages/angular-messages.min.js',
       'vendor/angular-resource/angular-resource.min.js',
       'vendor/angular-ui-grid/ui-grid.min.js',
 
-      'vendor/ng-grid/build/ng-grid.min.js',      
+      'vendor/ng-grid/build/ng-grid.min.js',
       'vendor/spin.js/spin.js',
       'vendor/moment/min/moment.min.js'
 
@@ -93,7 +93,7 @@ module.exports = {
       'vendor/ng-grid/ng-grid.min.css',
       'vendor/angular-ui-grid/ui-grid.css'
     ],
-    assets: [    
+    assets: [
       'vendor/angular-ui-grid/ui-grid.eot',
       'vendor/angular-ui-grid/ui-grid.svg',
       'vendor/angular-ui-grid/ui-grid.ttf',

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app.auth')
+        .module('app.anilist.auth')
         .service('AuthService', AuthService);
 
     AuthService.$inject = ['$http', '$q', '$resource'];
