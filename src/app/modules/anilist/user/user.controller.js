@@ -19,7 +19,7 @@
         ////////////////
         function activate() {
           $scope.rootCtrl.scrCfg = vm.scrCfg;
-          vm.user = userService.getCurrentUser();
+          //vm.user = userService.getCurrentUser();
         }
     }
 })();

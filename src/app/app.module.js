@@ -5,6 +5,7 @@ angular.module('app', [
     'app.root',
     'app.home',
     'app.modules',
+    'app.ui',
     'app.test',
 
     'ui.router',

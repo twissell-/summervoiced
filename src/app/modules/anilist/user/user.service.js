@@ -11,15 +11,9 @@
 
         var url = 'https://anilist.co/api/user';
 
-        var headers = {
-            'Authorization': 'Bearer ' + $cookies.get('accessToken'),
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Credentials': 'true'
-        };
-
         var _resource = $resource(url, {}, {
             currentUser: { method:'GET', headers: headers },
-            animeList: { method:'GET', url: 'https://anilist.co/api/user/:id/animelist/', headers: headers }
+            animeList: { method:'GET', url: 'https://anilist.co/api/user/:id/animelist/', headers: getHeaders() }
         });
 
         var service = {
@@ -28,7 +22,7 @@
             // constants
             url: url,
             // variables
-            user: {id: 3225}
+            user: {}
         };
 
         init();
@@ -38,23 +32,38 @@
         //////////////////////////////////
 
         function init() {
-            _resource.currentUser().$promise
-            .then(function (response) {
-                service.user.id = response.id;
-                service.user.name = response.display_name;
-            });
+
         }
 
         function getCurrentUser(){
-            return _resource.currentUser().$promise;
+            if (service.user) {
+              return service.user;
+            } else {
+              _resource.currentUser().$promise
+              .then(function (response) {
+                service.user = response;
+
+                return service.user;
+              }, function (reason) {
+                  console.log(reason);
+              });
+            }
         }
 
-        function getAnimeList(){
-            console.log(service.user.id);
-            return _resource.animeList({id: service.user.id}).$promise
+        function getAnimeList(id){
+            console.log(id);
+            return _resource.animeList({id: id}).$promise
             .then(function (response) {
                 console.log(response);
             });
+        }
+
+        function getHeaders() {
+          return {
+              'Authorization': 'Bearer ' + $cookies.get('accessToken'),
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Credentials': 'true'
+          };
         }
       }
 })();

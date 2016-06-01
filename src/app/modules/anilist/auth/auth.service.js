@@ -25,8 +25,9 @@
             // constants
             url: url,
             clientId: 'demo-24our',
-            clientSecret: 'itaZTHJXdV99DAhVlomY1baCyM'
+            clientSecret: 'itaZTHJXdV99DAhVlomY1baCyM',
             // variables
+            user : {}
         };
 
         return service;

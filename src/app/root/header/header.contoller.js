@@ -4,21 +4,20 @@
         .module('app.root')
         .controller('HeaderCtrl', HeaderCtrl);
 
-    HeaderCtrl.$inject = ['UserService'];
+    HeaderCtrl.$inject = ['$cookies'];
 
     /* @ngInject */
-    function HeaderCtrl(userService) {
+    function HeaderCtrl($cookies) {
         var vm = this;
         vm.user = {
-            name: ''
+          name: ''
         };
+
         activate();
         ////////////////
         function activate() {
-            userService.getCurrentUser()
-            .then(function (response) {
-                vm.user.name = response.display_name + ' : ' + response.id;
-            });
+          vm.user.name =  $cookies.get('userName');
+
         }
     }
 })();
