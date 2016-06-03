@@ -19,6 +19,8 @@
 //            save: {method: 'POST', url: url + '/save', transformRequest: workWithResource.buildSaveParams}
         });
 
+        var _listeners = [];
+
         var service = {
             authenticateByPin: authenticateByPin,
             getPinUrl: getPinUrl,
@@ -34,19 +36,8 @@
 
         //////////////////////////////////
 
-        function getReadOnlyAuthentication(){
-          var params = {
-            grant_type: 'client_credentials',
-            client_id: service.clientId,
-            client_secret: service.clientSecret
-          };
-
-            _resource.authenticate(params).$promise
-            .then(function (response) {
-              service.readOnlyAuthentication = response.access_token;
-            });
-
-            return service.readOnlyAuthentication;
+        function getPinUrl(){
+            return service.url + '/authorize' + '?grant_type=authorization_pin&client_id=' + service.clientId + '&response_type=pin';
         }
 
         function authenticateByPin(pin){
@@ -57,7 +48,12 @@
             code: pin
           };
 
-          return _resource.authenticate(params).$promise;
+          var promise = _resource.authenticate(params).$promise;
+          promise.then(function (response) {
+              // TODO aca <------------------
+              // https://www.sitepoint.com/10-essential-atom-add-ons/
+          })
+          return promise
         }
 
         function refreshAuthentication(refreshToken){
@@ -70,9 +66,11 @@
 
           return _resource.authenticate(params).$promise;
         }
+      }
 
-        function getPinUrl(){
-          return service.url + '/authorize' + '?grant_type=authorization_pin&client_id=' + service.clientId + '&response_type=pin';
-        }
+      // callbacks
+
+      function addListener(cb) {
+          _listeners.push(cb);
       }
 })();

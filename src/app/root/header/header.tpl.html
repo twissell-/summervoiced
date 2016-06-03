@@ -10,7 +10,7 @@
 </div>
 <!-- Top Menu Items -->
 <ul class="nav navbar-right top-nav">
-    <li class="dropdown">
+    <li ng-hide="true" class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
         <ul class="dropdown-menu message-dropdown">
             <li class="message-preview">
@@ -63,7 +63,7 @@
             </li>
         </ul>
     </li>
-    <li class="dropdown">
+    <li ng-hide="true" class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
         <ul class="dropdown-menu alert-dropdown">
             <li>
@@ -90,8 +90,8 @@
             </li>
         </ul>
     </li>
-    <li ng-show="headerCtrl.user.name" class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{headerCtrl.user.name}} <b class="caret"></b></a>
+    <li ng-show="rootCtrl.principal" class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{rootCtrl.principal.display_name}} <b class="caret"></b></a>
         <ul class="dropdown-menu">
             <li>
                 <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -107,5 +107,8 @@
                 <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
             </li>
         </ul>
+    </li>
+    <li ng-hide="rootCtrl.principal" class="nav-item">
+        <a class="nav-link" href="#/auth">AL authenticate</a>
     </li>
 </ul>

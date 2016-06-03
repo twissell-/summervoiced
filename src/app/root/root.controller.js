@@ -4,10 +4,10 @@
         .module('app.root')
         .controller('RootCtrl', RootCtrl);
 
-    RootCtrl.$inject = [];
+    RootCtrl.$inject = ['UserService'];
 
     /* @ngInject */
-    function RootCtrl() {
+    function RootCtrl(userService) {
         var vm = this;
 
         vm.scrCfg = {
@@ -18,7 +18,11 @@
         activate();
         ////////////////
         function activate() {
+            userService.addListener(userLoginCb);
+        }
 
+        function userLoginCb(user) {
+            vm.principal = user;
         }
     }
 })();
