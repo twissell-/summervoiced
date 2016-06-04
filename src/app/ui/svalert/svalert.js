@@ -7,7 +7,6 @@ angular.module('app.ui')
         },
         templateUrl: 'ui/svalert/svalert.tpl.html',
         link: function () {
-          console.log('lalala');
         }
     };
 });

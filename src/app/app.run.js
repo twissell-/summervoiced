@@ -8,11 +8,11 @@
     //initFn.$inject = ['$rootScope', '$locale', 'debugging', 'arenaI18nService', 'i18nService', 'msgService', 'arenaMaskService'];
     initFn.$inject = ['$rootScope', '$locale'];
 
-    //function initFn($rootScope, $locale, debugging, arenaI18nService, i18nService, msgService, arenaMaskService){      
+    //function initFn($rootScope, $locale, debugging, arenaI18nService, i18nService, msgService, arenaMaskService){
     /* @ngInject */
-    function initFn($rootScope, $locale){      
-      
-      //Angular format = es-ar 
+    function initFn($rootScope, $locale){
+
+      //Angular format = es-ar
       //Java format = es_AR
       var language = $locale.id.substring(0,2);
       var country = $locale.id.substring(3,6).toUpperCase();

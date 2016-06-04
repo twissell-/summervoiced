@@ -34,12 +34,12 @@
 
           authService.authenticateByPin(pin)
           .then(function (response) {
-            $cookies.put('accessToken', response.access_token);
-            $cookies.put('refreshToken', response.refresh_token);
+              $cookies.put('accessToken', response.access_token);
+              $cookies.put('refreshToken', response.refresh_token);
 
             _onSuccess();
-          }, function (reason) {
-            _onError(reason.data.error_description);
+        }, function (error) {
+            _onError(error.data.error_description);
           });
         }
 

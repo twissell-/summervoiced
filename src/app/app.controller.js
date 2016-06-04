@@ -3,16 +3,18 @@
     angular
         .module('app')
         .controller('AppCtrl', AppCtrl);
-    AppCtrl.$inject = [];
+    AppCtrl.$inject = ['$cookies', 'AuthService'];
     /* @ngInject */
-    function AppCtrl() {
+    function AppCtrl($cookies, authService) {
         var vm = this;
-        vm.todo = 'lo';
-        vm.que = 'ponga';
-        vm.aca = 'anda';
+
         activate();
         ////////////////
         function activate() {
+            var refreshToken = $cookies.get('refreshToken');
+            if (refreshToken) {
+                authService.refreshAuthentication(refreshToken);
+            }
         }
     }
 })();

@@ -8,24 +8,26 @@
     AuthService.$inject = ['$http', '$q', '$resource'];
     function AuthService($http, $q, $resource){
 
+        var _url = 'https://anilist.co/api/auth';
 
-        var url = 'https://anilist.co/api/auth';
-        //var params = '/:codEmp/:tipPer/:codGrp/:codUsr/:codMenuIt';
-        var params = '';
-
-        var _resource = $resource(url + params,{},{
-            authenticate: {method:'POST', url: url + '/access_token'}
- //            validateUsrGrp: {method:'GET', url: url + '/validateUsrGrp'},
-//            save: {method: 'POST', url: url + '/save', transformRequest: workWithResource.buildSaveParams}
+        var _resource = $resource(_url,{},{
+            authenticate: {method:'POST', url: _url + '/access_token'}
+            //            validateUsrGrp: {method:'GET', url: url + '/validateUsrGrp'},
+            //            save: {method: 'POST', url: url + '/save', transformRequest: workWithResource.buildSaveParams}
         });
 
         var _listeners = [];
 
+        // public
+
         var service = {
+            // functions
             authenticateByPin: authenticateByPin,
+            refreshAuthentication:refreshAuthentication,
             getPinUrl: getPinUrl,
+            addListener: addListener,
             // constants
-            url: url,
+            url: _url,
             clientId: 'demo-24our',
             clientSecret: 'itaZTHJXdV99DAhVlomY1baCyM',
             // variables
@@ -50,10 +52,13 @@
 
           var promise = _resource.authenticate(params).$promise;
           promise.then(function (response) {
-              // TODO aca <------------------
-              // https://www.sitepoint.com/10-essential-atom-add-ons/
-          })
-          return promise
+              for (var i = 0; i < _listeners.length; i++) {
+                  _listeners[i](response);
+              }
+          }, function (error) {
+              console.log(error);
+          });
+          return promise;
         }
 
         function refreshAuthentication(refreshToken){
@@ -64,13 +69,21 @@
             refresh_token: refreshToken
           };
 
-          return _resource.authenticate(params).$promise;
+          var promise = _resource.authenticate(params).$promise;
+          promise.then(function (response) {
+              for (var i = 0; i < _listeners.length; i++) {
+                _listeners[i](response);
+              }
+          }, function (error) {
+              console.log(error);
+          });
+          return promise;
         }
-      }
 
       // callbacks
 
       function addListener(cb) {
           _listeners.push(cb);
       }
+  }
 })();
