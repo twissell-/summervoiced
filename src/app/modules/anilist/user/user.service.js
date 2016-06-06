@@ -12,29 +12,16 @@
 
         var headers = {
             'Authorization': getAuthorizationHeader,
-            'Content-Type': 'application/x-www-form-urlencoded',
-            //'Content-Type': 'application/json',
-            'Access-Control-Allow-Headers': 'accept, content-type',
-            'Access-Control-Allow-Origin': 'http://localhost',
-            'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
-            'dataType': "json"
+            'Content-Type': 'application/json'
         };
 
+        var _principal;
+
         var _resource = $resource(url, {}, {
-            currentUser: { method:'GET', headers: headers },
-            animeList: {
-                method:'GET',
-                headers: headers,
-                url: function () {
-                    var url = 'https://anilist.co/api/user/' + _principal.id + '/animelist/';
-                    console.log(url);
-                    return url;
-                }
-            }
+            currentUser: { method:'GET', headers: headers }
         });
 
         var _listeners = [];
-        var _principal;
 
         var service = {
             getPrincipal: getPrincipal,
@@ -74,18 +61,11 @@
         }
 
         function getAnimeList(){
-            service.getPrincipal()
-            .then(function (principal) {
-                console.log(principal.id);
-                $http({
-                    url: 'https://anilist.co/api/user/' + principal.id + '/animelist/',
-                    method: "GET",
-                    headers: headers
-                 })
-                 .then(function (response) {
-                    console.log(response);
-                });
+            var promise = $http.get('https://anilist.co/api/user/' + _principal.id + '/animelist?access_token=' + $cookies.get('accessToken'));
+            promise.then(function (response) {
+                console.log(response.data.lists);
             });
+            return promise;
         }
 
         // callbacks

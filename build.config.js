@@ -14,7 +14,7 @@ module.exports = {
    * La carpeta `webapp_dir` es el directorio raíz donde se aloja la aplicación
    * web en el servidor. El subdirectorio `angular` se agregó para mayor claridad
    */
-  //webapp_dir: 'webapp',
+  webapp_dir: '/var/www/html/dev/summervoiced',
 
 
   /**
