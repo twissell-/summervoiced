@@ -37,12 +37,12 @@
                         <tr ng-repeat="item in vm.watching | orderBy: 'updated_time'" tr>
                             <td>{{item.anime.title_romaji}}</td>
                             <td ng-switch="item.anime.airing_status" class="text-center">
-                                <i ng-switch-when="not yet aired" class="fa fa-circle-o alert-danger" aria-hidden="true"></i>
-                                <i ng-switch-when="currently airing" class="fa fa-dot-circle-o alert-warning" aria-hidden="true"></i>
-                                <i ng-switch-when="finished airing" class="fa fa-circle alert-success" aria-hidden="true"></i>
+                                <i ng-switch-when="not yet aired" class="fa fa-circle-o text-danger" aria-hidden="true"></i>
+                                <i ng-switch-when="currently airing" class="fa fa-dot-circle-o text-warning" aria-hidden="true"></i>
+                                <i ng-switch-when="finished airing" class="fa fa-circle text-success" aria-hidden="true"></i>
                             </td>
-                            <td class="progress text-center" >
-                                    <div class="progress-bar " role="progressbar" aria-valuenow="{{item.episodes_watched}}"
+                            <td class="text-center" >
+                                    <div class="progress progress-bar progress-in-table" role="progressbar" aria-valuenow="{{item.episodes_watched}}"
                                         aria-valuemin="0" aria-valuemax="{{item.anime.total_episodes}}"
                                         style="{{item.anime.total_episodes ? 'width:' + (item.episodes_watched * 100 / item.anime.total_episodes) + '%' : 'width: 100%'}}">
                                         {{item.episodes_watched}}/{{item.anime.total_episodes}}
@@ -77,9 +77,9 @@
                         <tr ng-repeat="item in vm.planTo | orderBy: 'anime.airing_status'" tr>
                             <td>{{item.anime.title_romaji}}</td>
                             <td ng-switch="item.anime.airing_status" class="text-center">
-                                <i ng-switch-when="not yet aired" class="fa fa-circle-o alert-danger" aria-hidden="true"></i>
-                                <i ng-switch-when="currently airing" class="fa fa-dot-circle-o alert-warning" aria-hidden="true"></i>
-                                <i ng-switch-when="finished airing" class="fa fa-circle alert-success" aria-hidden="true"></i>
+                                <i ng-switch-when="not yet aired" class="fa fa-circle-o text-danger" aria-hidden="true"></i>
+                                <i ng-switch-when="currently airing" class="fa fa-dot-circle-o text-warning" aria-hidden="true"></i>
+                                <i ng-switch-when="finished airing" class="fa fa-circle text-success" aria-hidden="true"></i>
                             </td>
                         </tr>
                     </tbody>
