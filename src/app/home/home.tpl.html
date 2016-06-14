@@ -13,18 +13,18 @@
 <div class="row">
     <div class="col-lg-9 col-md-9">
         <div class="panel panel-primary">
-            <div class="panel-heading">
+            <div class="panel-heading" ng-click="vm.showOrHide(vm.watching)">
                 <div class="row">
                     <div class="col-xs-3">
                         <i class="fa fa-play-circle fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">{{vm.watching.length}}</div>
+                        <div class="huge">{{vm.watching.data.length}}</div>
                         <div>Currently watching</div>
                     </div>
                 </div>
             </div>
-            <div class="panel-footer table-responsive">
+            <div ng-show="vm.watching.show" class="panel-footer table-responsive">
                 <table class="table table-bordered table-hover table-striped">
                     <thead>
                         <tr>
@@ -34,7 +34,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="item in vm.watching | orderBy: 'updated_time'" tr>
+                        <tr ng-repeat="item in vm.watching.data | orderBy: 'updated_time'" tr>
                             <td>{{item.anime.title_romaji}}</td>
                             <td ng-switch="item.anime.airing_status" class="text-center">
                                 <i ng-switch-when="not yet aired" class="fa fa-circle-o text-danger" aria-hidden="true"></i>
@@ -54,18 +54,19 @@
             </div>
         </div>
         <div class="panel panel-yellow">
-            <div class="panel-heading">
+            <div class="panel-heading" ng-click="vm.showOrHide(vm.planTo)">
                 <div class="row">
                     <div class="col-xs-3">
-                        <i class="fa fa-shopping-cart fa-5x"></i>
+                        <i ng-if="!vm.planTo.show" class="fa fa-chevron-circle-right fa-5x"></i>
+                        <i ng-if="vm.planTo.show" class="fa fa-chevron-circle-down fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">{{vm.planTo.length}}</div>
+                        <div class="huge">{{vm.planTo.data.length}}</div>
                         <div>Plan To</div>
                     </div>
                 </div>
             </div>
-            <div class="panel-footer table-responsive">
+            <div ng-show="vm.planTo.show" class="panel-footer table-responsive">
                 <table class="table table-bordered table-hover table-striped">
                     <thead>
                         <tr>
@@ -74,7 +75,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="item in vm.planTo | orderBy: 'anime.airing_status'" tr>
+                        <tr ng-repeat="item in vm.planTo.data | orderBy: 'anime.airing_status'" tr>
                             <td>{{item.anime.title_romaji}}</td>
                             <td ng-switch="item.anime.airing_status" class="text-center">
                                 <i ng-switch-when="not yet aired" class="fa fa-circle-o text-danger" aria-hidden="true"></i>

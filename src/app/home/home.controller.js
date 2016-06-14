@@ -15,10 +15,19 @@
           subtitle: ''
         };
 
-        vm.watching = [];
-        vm.planTo = [];
+        vm.watching = {
+            data: [],
+            show: false
+        };
+        vm.planTo = {
+            data: [],
+            show: false
+        };
 
         vm.getWatchingList = getWatchingList;
+        vm.show = show;
+        vm.hide = hide;
+        vm.showOrHide = showOrHide;
 
         activate();
         ////////////////
@@ -28,11 +37,23 @@
             vm.comments = 23;
         }
 
+        function show(element) {
+            element.show = true;
+        }
+
+        function hide(element) {
+            element.show = false;
+        }
+
+        function showOrHide(element) {
+            element.show = !element.show;
+        }
+
         function getWatchingList() {
             userService.getAnimeList()
             .then(function (response) {
-                vm.watching = response.data.lists.watching;
-                vm.planTo = response.data.lists.plan_to_watch;
+                vm.watching.data = response.data.lists.watching;
+                vm.planTo.data = response.data.lists.plan_to_watch;
             });
         }
     }
